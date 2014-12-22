@@ -1,0 +1,23 @@
+{
+  "name": "coffee-boilerplate",
+  "version": "0.0.0",
+  "description": "boilerplate for coffee apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-js": "browserify -t coffeeify src/main.coffee | uglifyjs -mc > public/js/bundle.js",
+    "build-css": "sass --compass src/styles:public/styles",
+    "watch-js": "watchify -t coffeeify --debug src/main.coffee -o public/js/bundle.js -dv",
+    "watch-css": "sass --watch src/styles:public/styles",
+    "build": "npm run build-js && npm run build-css",
+    "watch": "npm run watch-js & npm run watch-css"
+  },
+  "devDependencies": {
+    "browserify": "^7.0.3",
+    "coffee-script": "^1.8.0",
+    "coffeeify": "^1.0.0",
+    "watchify": "^2.2.1"
+  },
+  "author": "petri avikainen <petri.avikainen@gmail.com>",
+  "license": "MIT"
+}
